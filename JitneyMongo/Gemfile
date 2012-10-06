@@ -6,6 +6,8 @@ gem 'rails', '3.2.8'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 
+gem 'rspec'
+gem 'pry'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -27,11 +29,17 @@ gem "twitter-bootstrap-rails"
 # mongoid
 gem 'mongoid', '~>3.0.4'
 
+# geocoder
+gem 'geokit'
+
 #authentication 
 gem "devise", ">= 2.1.2"
 
 # google maps
 gem 'gmaps4rails'
+
+# twilio and sms
+gem 'twilio-ruby'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

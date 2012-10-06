@@ -1,4 +1,12 @@
 JitneyMongo::Application.routes.draw do
+  resources :requests
+  
+  
+
+  resources :users
+  
+  match 'ride_request' => 'users#ride_request'
+
   resources :trips
 
   # The priority is based upon order of creation:
