@@ -5,7 +5,7 @@ class Trip
   field :start, type: DateTime
   field :loc, type: Array
   field :end, type: DateTime
+  belongs_to :driver
   
-  acts_as_gmappable :position => :loc
   
 end

@@ -1,4 +1,6 @@
 JitneyMongo::Application.routes.draw do
+  devise_for :drivers
+
   resources :requests
   
   
