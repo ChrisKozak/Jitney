@@ -40,6 +40,5 @@ class Driver
 
   ## Token authenticatable
   # field :authentication_token, :type => String
-  
   has_many :trips
 end

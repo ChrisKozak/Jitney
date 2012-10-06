@@ -1,6 +1,7 @@
 JitneyMongo::Application.routes.draw do
   devise_for :drivers
 
+
   resources :requests
   
   
@@ -8,6 +9,10 @@ JitneyMongo::Application.routes.draw do
   resources :users
   
   match 'ride_request' => 'users#ride_request'
+  
+  resources :drivers do 
+    resources :trips
+  end
 
   resources :trips
 
