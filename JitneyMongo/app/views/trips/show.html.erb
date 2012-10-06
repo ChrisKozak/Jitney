@@ -20,6 +20,8 @@
   <%= @trip.end %>
 </p>
 
+<%= gmaps(:markers => {:data => @json, :options => { :raw => '{ animation: google.maps.Animation.BOUNCE }' } },
+          :map_options => { :raw => '{ disableDefaultUI: true, scrollwheel: false }' }) %>
 
 <%= link_to 'Edit', edit_trip_path(@trip) %> |
 <%= link_to 'Back', trips_path %>
