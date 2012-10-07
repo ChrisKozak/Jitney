@@ -1,20 +1,24 @@
+require File.join(File.dirname(__FILE__), '../../app/services/texter')
+require File.join(File.dirname(__FILE__), '../../app/models/trip')
+require File.join(File.dirname(__FILE__), '../../app/models/request')
+
+
 class Driver
   include Mongoid::Document
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+  #devise :database_authenticatable, :registerable,
+  #       :recoverable, :rememberable, :trackable, :validatable
 
   field :phone, :type => String
-
   ## Database authenticatable
   field :email,              :type => String, :default => ""
   field :encrypted_password, :type => String, :default => ""
 
   validates_presence_of :email
   validates_presence_of :encrypted_password
-  
+
   ## Recoverable
   field :reset_password_token,   :type => String
   field :reset_password_sent_at, :type => Time
@@ -43,4 +47,9 @@ class Driver
   ## Token authenticatable
   # field :authentication_token, :type => String
   has_many :trips
+
+
+  def notify_of(ride_request)
+    Texter.send_text("+17344174648", "Hey, #{ride_request.rider.name} needs a ride from #{ride_request.address}.  You can reach them at 734.417.4648")
+  end
 end
