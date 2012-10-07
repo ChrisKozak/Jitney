@@ -6,13 +6,18 @@ Mongoid.load!("mongoid.yml")
 
 
 post '/request_ride' do
-  phone_number = params[:number]
+  get_rider(params[:number])
+  create_request(params[:body])
+end
+
+def get_rider(phone_number)
   @rider = Rider.where(phone: phone_number).first
   @rider = Rider.create!(phone: phone_number) unless @rider
+end
 
-  text_address = params[:body]
-  @rider.requests.build(address: text_address, coordinates: derive_lat_long_from_text(text_address)).save!
-
+def create_request(text_address)
+  geo_info = derive_lat_long_from_text(text_address)[0]
+  @rider.requests.build(address: text_address, coordinates: [geo_info.latitude, geo_info.longitude]).save!
 end
 
 def derive_lat_long_from_text text_address
