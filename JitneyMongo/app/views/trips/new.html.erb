@@ -1,4 +1,12 @@
-<h1>New trip</h1>
+<% if flash[:notice]%>
+<div class="alert">
+
+	<h3><%= flash[:notice]%></h3>
+
+</div>
+<% end %>
+
+<h1>Create a New trip</h1>
 
 <%= render 'form' %>
 

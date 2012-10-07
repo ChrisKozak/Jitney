@@ -1,33 +1,45 @@
-<%= form_for(@trip) do |f| %>
-  <% if @trip.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@trip.errors.count, "error") %> prohibited this trip from being saved:</h2>
 
-      <ul>
-      <% @trip.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+<div class="row">
+	<div class="span6">
+	<%= form_for(@trip) do |f| %>
+  	<% if @trip.errors.any? %>
+    	<div id="error_explanation">
+      		<h2><%= pluralize(@trip.errors.count, "error") %> prohibited this trip from being saved:</h2>
 
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :start %><br />
-    <%= f.text_field :start %>
-  </div>
-  <div class="field">
-    <%= f.label :loc %><br />
-    <%= f.text_field :loc %>
-  </div>
-  <div class="field">
-    <%= f.label :end %><br />
-    <%= f.text_field :end %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+      		<ul>
+      			<% @trip.errors.full_messages.each do |msg| %>
+        		<li><%= msg %></li>
+      	<% end %>
+      	</ul>
+    	</div>
+  		<% end %>
+
+  		<div class="field">
+    		<%= f.label :name %><br />
+    		<%= f.text_field :name %>
+  		</div>
+  		<div class="field">
+    		<%= f.label :start, "Start time" %><br />
+    		<%= f.datetime_select :start %>
+  		</div>
+  		<div class="field">
+    		<%= f.label :end, "End Time" %><br />
+    		<%= f.datetime_select :end %>
+  		</div>
+		<div class="field">
+			<%= label_tag :phone_number, "Phone number to reach"%>
+			<%= text_field_tag :phone_number %>
+		</div>
+		<%= f.hidden_field :loc %>
+  		<div class="actions">
+    		<%= f.submit "Create trip", :class => 'btn btn-large btn-info'  %>
+  		</div>
+	</div>
+	<div class="span6">
+		<div class="map-wrapper">
+			<div id="map_canvas" style="width:100%; height:100%"></div>
+		</div>
+	</div>
+</div>
+
 <% end %>

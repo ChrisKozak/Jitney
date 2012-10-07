@@ -1,6 +1,9 @@
 require 'spec_helper'
+
 describe UsersController do
   it "should create a new user when the request's phone number is unrecognized" do
+require 'pry'
+binding.pry
     User.where(phone: '1234567890').first.should be(nil)
     params = {:phone_number => "1234567890", :body => "LOCATION_STRING"}
     post :ride_request
