@@ -1,13 +1,11 @@
 require 'sinatra'
 require 'sinatra/partial'
 require 'geocoder'
-require 'mongoid_spacial'
 require File.join(File.dirname(__FILE__), 'app/models/rider')
 require File.join(File.dirname(__FILE__), 'app/models/request')
 require File.join(File.dirname(__FILE__), 'app/models/trip')
 require File.join(File.dirname(__FILE__), 'app/services/request_driver_matcher')
 Mongoid.load!("mongoid.yml")
-
 
 post '/confirm_ride' do
   get_driver(params[:number])

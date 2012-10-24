@@ -1,0 +1,9 @@
+require 'mongoid'
+require File.join(File.dirname(__FILE__), 'app/models/request')
+
+desc 'Generate indexes'
+task :generate_indexes do
+  Mongoid.load!("mongoid.yml", :development)
+  Request.create_indexes()
+end
+

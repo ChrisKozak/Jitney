@@ -50,6 +50,6 @@ class Driver
 
 
   def notify_of(ride_request)
-    Texter.send_text("+17344174648", "Hey, #{ride_request.rider.name} needs a ride from #{ride_request.address}.  You can reach them at 734.417.4648")
+    Texter.send_text("+17344174648", "Hey Jeet, Chris needs a ride from #{ride_request.address}.  You can reach him at 734.417.4648")
   end
 end

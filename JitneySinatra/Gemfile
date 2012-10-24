@@ -1,5 +1,6 @@
 source :rubygems
 
+gem 'chronic'
 gem 'rspec'
 gem 'sinatra'
 gem 'sinatra-partial'

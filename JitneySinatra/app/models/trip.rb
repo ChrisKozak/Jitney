@@ -4,9 +4,8 @@ class Trip
   include Mongoid::Document
 
   field :name, type: String
-  field :start, type: DateTime
   field :loc, type: Array
+  field :start, type: DateTime
   field :end, type: DateTime
   belongs_to :driver
-
 end
