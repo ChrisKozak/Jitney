@@ -72,8 +72,4 @@ describe "Application controller" do
     trip.end.should eq(matching_trip.end)
     trip.loc.should eq(matching_trip.loc)
   end
-
-  it "should return drivers whose trips overlap a request"
-  it "should return drivers whose trip times overlap a request"
-
 end

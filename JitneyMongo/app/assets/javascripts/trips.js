@@ -1,7 +1,6 @@
 
 
 $(function(){
-	
 	initializeMap();
 });
 
@@ -33,5 +32,14 @@ function initializeMap() {
 		google.maps.event.addListener(map, 'mousedown', function(e){
 			console.log(e.LatLng)
 		});
+
+        google.maps.event.addListener(drawingManager, 'overlaycomplete', function(event) {
+            function extractCoordinatesThatDefineServiceArea() {
+                return event.overlay.latLngs.b[0].b;
+            }
+
+            extractCoordinatesThatDefineServiceArea().forEach(
+                function(point){console.log(point.Za + " " + point.Ya);});
+        });
 }
 
